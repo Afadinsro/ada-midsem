@@ -1,5 +1,6 @@
 //Import Statements
 import java.util.*;
+import java.util.regex.Pattern;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
@@ -58,6 +59,11 @@ public class CountryAnalysis
      */
     public static int numCountries(){
         return countries.size();
+    }
+    
+    public static boolean isString(String text){
+        // A string must not contain any digit
+        return Pattern.matches("\\D+", text);
     }
     
     

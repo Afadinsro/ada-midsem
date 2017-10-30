@@ -6,9 +6,6 @@
  * @author Joseph Mills
  * @version October 2017
  */
-
-
-
 public class Country implements Comparable<Country> 
 {
     // instance variables

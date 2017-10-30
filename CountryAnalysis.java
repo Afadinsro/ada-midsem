@@ -1,11 +1,3 @@
-
-/**
- * Write a description of class CountryAnalysis here.
- *
- * @author Joseph Mills
- * @version October 2017
- */
-
 //Import Statements
 import java.util.*;
 import java.io.BufferedReader;
@@ -13,6 +5,12 @@ import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * Write a description of class CountryAnalysis here.
+ *
+ * @author Joseph Mills
+ * @version October 2017
+ */
 public class CountryAnalysis
 {
     // instance variables

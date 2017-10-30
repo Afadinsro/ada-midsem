@@ -1,9 +1,10 @@
 
 /**
- * Write a description of class Country here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * This class models a real-world Country
+ * Every Country object has a name and a population
+ * The name of every Country object should be unique.
+ * @author Joseph Mills
+ * @version October 2017
  */
 
 import java.util.*;
@@ -52,7 +53,7 @@ public class Country implements Comparable<Country>
     
     /**
      * Compares this Country to the specified object
-     *
+     * Two Country objects are equal if they have the same name.
      * @return    true if the specified object has the same name as this Country,
      * and false if otherwise.
      */
@@ -69,7 +70,14 @@ public class Country implements Comparable<Country>
         return equals;
     }
     
-    
+    /**
+     * Compares this object to the Specified country.
+     * The order of comparison depends on the Country's population. 
+     * The higher the population, the higher the order.
+     * @param       other The specified Country to be compared to this object
+     * @return      a negative integer, 0 or positive integer when this object is less than, 
+     * equal to or greater than the specified object.
+     */
     @Override
     public int compareTo(Country other)
     {

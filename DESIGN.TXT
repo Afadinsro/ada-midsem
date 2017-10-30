@@ -1,0 +1,33 @@
+
+PROBLEM 2
+
+Read in data using buffered reader wrapped around file reader
+Each line in the file will be read in as a string, which will then be split 
+a comma as the CSV file specifies
+Each of the strings resulting from the split will be assigned to the 
+corresponding instance variable of a Country object. 
+This Country object is then stored in a list (ArrayList).
+
+(a)
+A country object will implement the Comparable interface (for the population)
+in the 
+
+Country
+int population()
+int name()
+boolean equals(Country)
+int compareTo(Country)
+
+The CountryAnalysis class will consist of static methods to analyse the countries.
+Its member variable will be an ArrayList of Country objects.
+This ArrayList will be sorted using the Collections.sort() method which runs in 
+nlog(n) time. 'Cos it uses merge sort (fast and stable in contrast with quick sort)
+
+
+(b)
+
+
+(c)
+
+
+

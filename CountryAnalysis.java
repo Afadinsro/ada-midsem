@@ -14,7 +14,7 @@ import java.io.IOException;
 public class CountryAnalysis
 {
     // instance variables
-    ArrayList<Country> countries;
+    private ArrayList<Country> countries;
 
     /**
      * Constructor for objects of class CountryAnalysis
@@ -54,4 +54,10 @@ public class CountryAnalysis
     public ArrayList<Country> countries(){
         return this.countries;
     }
+    
+    public int numCountries(){
+        return this.countries.size();
+    }
+    
+    
 }

@@ -80,4 +80,12 @@ public class Country implements Comparable<Country>
     {
         return this.population().compareTo(other.population());
     }
+    
+    /**
+     * 
+     * @return 
+     */
+    public String toString(){
+        return name() + ": " + population();
+    }
 }

@@ -13,50 +13,51 @@ import java.io.IOException;
  */
 public class CountryAnalysis
 {
-    // instance variables
-    private ArrayList<Country> countries;
-
-    /**
-     * Constructor for objects of class CountryAnalysis
-     */
-    public CountryAnalysis(String filename)
-    {
-        // initialise instance variables
-        countries = new ArrayList();
-        
-        
-    }
+    // static instance variables
+    private static ArrayList<Country> countries = new ArrayList();
 
     /**
      * 
      */
-    public void read(String filename){
+    public static ArrayList<Country> read(String filename){
         String line = null;
+        // try-with resources approach used to handle closure of resources automatically
         try(BufferedReader reader = new BufferedReader(new FileReader(filename))){
+            int count = 0;
             while(reader.ready() && (line = reader.readLine()) != null){
-                // CSV file is delimited by a comma
-                String[] arr = line.split(",");
-                // Create country objects from the data
-                Country temp = new Country(arr[0], Integer.parseInt(arr[1]));
-                countries.add(temp);
+                // ignore the first line of the file, thats the header row
+                if(count >= 1){
+                    // CSV file is delimited by a comma
+                    String[] arr = line.split(",");
+                    // Create country objects from the data
+                    Country temp = new Country(arr[0], Integer.parseInt(arr[1]));
+                    // Add countries to the list
+                    countries.add(temp);
+                }
+                //increase counter
+                count++;
             }
         }catch(FileNotFoundException e){
             
         }catch(IOException io){
             
         }
-        
+        // return list of countries
+        return countries();
     }
     
     /**
      * 
      */
-    public ArrayList<Country> countries(){
-        return this.countries;
+    public static ArrayList<Country> countries(){
+        return countries;
     }
     
-    public int numCountries(){
-        return this.countries.size();
+    /**
+     * 
+     */
+    public static int numCountries(){
+        return countries.size();
     }
     
     

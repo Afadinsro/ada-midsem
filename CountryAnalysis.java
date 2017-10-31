@@ -16,7 +16,6 @@ public class CountryAnalysis
 {
     // static instance variables
     private static ArrayList<Country> countries = new ArrayList();
-    private static int size = 0;
 
     /**
      * 
@@ -65,8 +64,6 @@ public class CountryAnalysis
                 //increase counter
                 count++;
             }
-            // assign size
-            size = count - 1;
         }catch(FileNotFoundException e){
             
         }catch(IOException io){

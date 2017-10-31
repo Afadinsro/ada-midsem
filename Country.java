@@ -20,12 +20,16 @@ public class Country implements Comparable<Country>
 
     /**
      * Constructor for objects of class Country
+     * A Country's name cannot be NULL
      */
     public Country(String name, Integer population)
     {
         // initialise instance variables
-        this.name = name;
-        this.population = population;
+        if(name != null){
+            this.name = name;
+            this.population = population;
+        }
+        
     }
 
     /**

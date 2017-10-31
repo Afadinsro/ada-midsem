@@ -31,7 +31,18 @@ public class CountryAnalysis
                     // CSV file is delimited by a comma
                     String[] arr = line.split(",");
                     // Create country objects from the data
-                    Country temp = new Country(arr[0], Integer.parseInt(arr[1]));
+                    int population = 0;
+                    String name = null;
+                    if(isInt(arr[1])){
+                        population = Integer.parseInt(arr[1]);
+                        name = arr[0];
+                    }else if(isInt(arr[2])){
+                        // if the Country's name has a comma
+                        // eg. Gambia, The
+                        population = Integer.parseInt(arr[2]);
+                        name = arr[1] + arr[0];
+                    }
+                    Country temp = new Country(name, population);
                     // Add countries to the list
                     countries.add(temp);
                 }
@@ -64,16 +75,16 @@ public class CountryAnalysis
     /**
      * 
      */
-    public static boolean isString(String text){
-        // A string must not contain any digit
-        return Pattern.matches("^\\D+$", text);
+    public static boolean isNumeric(String text){
+        // Regex covers both integers and decimals
+        return Pattern.matches("^\\d+$|^\\d*[.]\\d+$", text);
     }
     
     /**
      * 
      */
-    public static boolean isNumeric(String text){
-        // Regex covers both integers and decimals
-        return Pattern.matches("^\\d+$|^\\d*[.]\\d+$", text);
+    public static boolean isInt(String text){
+        // Regex covers integers only
+        return Pattern.matches("^\\d+$", text); 
     }
 }

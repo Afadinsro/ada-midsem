@@ -14,15 +14,10 @@ public class CountryAnalysisTest
         Country nigeria = new Country("Nigeria", 100000000);
         Country congo = new Country("Congo", 20000000);
         
-        System.out.println("Testing isString()...");
-        System.out.println("kofi?: " + CountryAnalysis.isString("kofi"));
-        System.out.println("999?: " + CountryAnalysis.isString("999"));
-        System.out.println("ko-fi*?: " + CountryAnalysis.isString("ko-fi*"));
-        
         System.out.println("Testing isNumeric()...");
         System.out.println(".25?: " + CountryAnalysis.isNumeric(".25"));
         System.out.println("999?: " + CountryAnalysis.isNumeric("999"));
-        System.out.println("2*5?: " + CountryAnalysis.isNumeric("2=5"));
+        System.out.println("2=5?: " + CountryAnalysis.isNumeric("2=5"));
         System.out.println("10.56?: " + CountryAnalysis.isNumeric("10.56"));
         /*
         System.out.println("Testing read()...");

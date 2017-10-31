@@ -19,6 +19,11 @@ public class CountryAnalysisTest
         System.out.println("999?: " + CountryAnalysis.isString("999"));
         System.out.println("ko-fi*?: " + CountryAnalysis.isString("ko-fi*"));
         
+        System.out.println("Testing isNumeric()...");
+        System.out.println(".25?: " + CountryAnalysis.isNumeric(".25"));
+        System.out.println("999?: " + CountryAnalysis.isNumeric("999"));
+        System.out.println("2*5?: " + CountryAnalysis.isNumeric("2=5"));
+        System.out.println("10.56?: " + CountryAnalysis.isNumeric("10.56"));
         /*
         System.out.println("Testing read()...");
         ArrayList<Country> countries = CountryAnalysis.read("test.csv");

@@ -61,10 +61,19 @@ public class CountryAnalysis
         return countries.size();
     }
     
+    /**
+     * 
+     */
     public static boolean isString(String text){
         // A string must not contain any digit
-        return Pattern.matches("\\D+", text);
+        return Pattern.matches("^\\D+$", text);
     }
     
-    
+    /**
+     * 
+     */
+    public static boolean isNumeric(String text){
+        // Regex covers both integers and decimals
+        return Pattern.matches("^\\d+$|^\\d*[.]\\d+$", text);
+    }
 }

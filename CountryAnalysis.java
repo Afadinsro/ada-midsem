@@ -30,9 +30,10 @@ public class CountryAnalysis
                 if(count >= 1){
                     // CSV file is delimited by a comma
                     String[] arr = line.split(",");
-                    // Create country objects from the data
+                    // Country data variables
                     int population = 0;
                     String name = null;
+                    // Get the right name and population from the Strings from the split
                     if(isInt(arr[1])){
                         population = Integer.parseInt(arr[1]);
                         name = arr[0];
@@ -40,9 +41,23 @@ public class CountryAnalysis
                         // if the Country's name has a comma
                         // eg. Gambia, The
                         population = Integer.parseInt(arr[2]);
-                        name = arr[1] + arr[0];
+                        // Country names with commas are surrounded by ""
+                        //main name has " as first char
+                        String main = arr[0].substring(1);
+                        /*
+                         * prefix has " as last char
+                         * remove leading whitespace of prefix
+                         * last but one element is at index=arr[1].length()-2, because trimming
+                        */
+                        String prefix = arr[1].trim().substring(0, arr[1].length() - 2);
+                        // form Country name
+                        name = prefix + " " + main;
                     }
-                    Country temp = new Country(name, population);
+                    // Create country objects from the data
+                    Country temp = null;
+                    try{
+                        temp = new Country(name, population);
+                    }catch(NullPointerException e){}
                     // Add countries to the list
                     countries.add(temp);
                 }

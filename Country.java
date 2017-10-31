@@ -1,3 +1,6 @@
+// Import statements
+import java.lang.NullPointerException;
+
 
 /**
  * This class models a real-world Country
@@ -22,14 +25,15 @@ public class Country implements Comparable<Country>
      * Constructor for objects of class Country
      * A Country's name cannot be NULL
      */
-    public Country(String name, Integer population)
+    public Country(String name, Integer population) throws NullPointerException
     {
-        // initialise instance variables
-        if(name != null){
-            this.name = name;
-            this.population = population;
+        // Throw exception when name is null
+        if(name == null){
+            throw new NullPointerException("Country name cannot be null.");
         }
-        
+        // initialise instance variables
+        this.name = name;
+        this.population = population;
     }
 
     /**
@@ -89,7 +93,8 @@ public class Country implements Comparable<Country>
      * 
      * @return 
      */
-    public String toString(){
+    public String toString()
+    {
         return name() + ": " + population();
     }
 }

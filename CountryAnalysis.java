@@ -71,15 +71,6 @@ public class CountryAnalysis
         }
         // return list of countries
         return countries;
-    }     
-    
-    /**
-     * 
-     */
-    public static boolean isNumeric(String text)
-    {
-        // Regex covers both integers and decimals
-        return Pattern.matches("^\\d+$|^\\d*[.]\\d+$", text);
     }
     
     /**

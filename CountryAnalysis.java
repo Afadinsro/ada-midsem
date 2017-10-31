@@ -92,4 +92,22 @@ public class CountryAnalysis
         Collections.sort(countries);
         return countries;
     }
+    
+    public static ArrayList<Country> median(ArrayList<Country> countries){
+        int size = countries.size();
+        int medianIndex = 0;
+        ArrayList<Country> medianCountries = new ArrayList<Country>();
+        // Odd size
+        if(size % 2 == 1){
+            medianIndex = (size / 2) + 1;
+            medianCountries.add(countries.get(medianIndex));
+        }else{
+            //Even size
+            medianIndex = (size / 2);
+            // Add countries add indices size/2 & size/2 + 1
+            medianCountries.add(countries.get(medianIndex));
+            medianCountries.add(countries.get(++medianIndex));
+        }
+        return medianCountries;
+    }
 }

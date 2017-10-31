@@ -24,7 +24,7 @@ public class CountryAnalysisTest
        
         
         System.out.println("Testing read()...");
-        ArrayList<Country> countries = CountryAnalysis.read("country_data.csv");
+        ArrayList<Country> countries = CountryAnalysis.read("test.csv");
         for(Country c: countries){
             System.out.println(c);
         }

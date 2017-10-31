@@ -1,6 +1,7 @@
 //Import Statements
-import java.util.*;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
+import java.util.Collections;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
@@ -14,14 +15,13 @@ import java.io.IOException;
  */
 public class CountryAnalysis
 {
-    // static instance variables
-    private static ArrayList<Country> countries = new ArrayList();
-
     /**
      * 
      */
-    public static ArrayList<Country> read(String filename){
+    public static ArrayList<Country> read(String filename)
+    {
         String line = null;
+        ArrayList<Country> countries = new ArrayList();
         // try-with resources approach used to handle closure of resources automatically
         try(BufferedReader reader = new BufferedReader(new FileReader(filename))){
             int count = 0;
@@ -70,27 +70,14 @@ public class CountryAnalysis
             
         }
         // return list of countries
-        return countries();
-    }
-    
-    /**
-     * 
-     */
-    public static ArrayList<Country> countries(){
         return countries;
-    }
+    }     
     
     /**
      * 
      */
-    public static int numCountries(){
-        return countries.size();
-    }
-    
-    /**
-     * 
-     */
-    public static boolean isNumeric(String text){
+    public static boolean isNumeric(String text)
+    {
         // Regex covers both integers and decimals
         return Pattern.matches("^\\d+$|^\\d*[.]\\d+$", text);
     }
@@ -98,8 +85,20 @@ public class CountryAnalysis
     /**
      * 
      */
-    public static boolean isInt(String text){
+    public static boolean isInt(String text)
+    {
         // Regex covers integers only
         return Pattern.matches("^\\d+$", text); 
+    }
+    
+    /**
+     * 
+     * Collections.sort() uses merge sort which has a runtime of nlog(n)
+     * Runtime: nlog(n)
+     */
+    public static ArrayList<Country> sort(ArrayList<Country> countries){
+        // sort list using Collections package
+        Collections.sort(countries);
+        return countries;
     }
 }

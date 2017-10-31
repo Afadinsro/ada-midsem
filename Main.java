@@ -16,10 +16,14 @@ public class Main
         countries = CountryAnalysis.sort(countries);
         //get number of countries
         int size = countries.size();
-        int medianIndex = size / 2;
         
-        for(Country c: countries){
-            System.out.println(c);
-        }
+        int medianIndex = 0;
+        medianIndex = (size / 2) + 1;
+        // get median country
+        Country medCountry = countries.get(medianIndex);
+        //display result
+        System.out.println("Country with median population is " + medCountry.name() + ".");
+        System.out.println(medCountry.name() + " has a population of " + medCountry.population() + ".");
+        
     }
 }

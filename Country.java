@@ -36,7 +36,7 @@ public class Country implements Comparable<Country>
     {
         // Throw exception when name is null
         if(name == null){
-            throw new NullPointerException("Country name cannot be null.");
+            throw new NullPointerException("Country name cannot be null!");
         }
         // initialise instance variables
         this.name = name;

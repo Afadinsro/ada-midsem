@@ -21,6 +21,7 @@ import java.io.IOException;
  */
 public class CountryAnalysis
 {
+    // Static variable for infinity
     public static final int INFINITY = 1000000000;
     
     /**
@@ -36,7 +37,7 @@ public class CountryAnalysis
         try(BufferedReader reader = new BufferedReader(new FileReader(filename))){
             int count = 0;
             while(reader.ready() && (line = reader.readLine()) != null){
-                // ignore the first line of the file, thats the header row
+                // ignore the first line of the file, that's the header row
                 if(count >= 1){
                     // CSV file is delimited by a comma
                     String[] arr = line.split(",");
@@ -64,7 +65,8 @@ public class CountryAnalysis
                         /*
                          * prefix has " as last char
                          * remove leading whitespace of prefix
-                         * last but one element is at index=arr[1].length()-2, because trimming
+                         * last but one element is at index=n-2, 
+                         * because trimming removes one char
                         */
                         String prefix = arr[1].trim().substring(0, arr[1].length() - 2);
                         // form Country name
@@ -78,7 +80,7 @@ public class CountryAnalysis
                         // Display error message
                         System.err.println("Country name cannot be null!");
                     }
-                    // Add countries to the list
+                    // Add country to the list
                     countries.add(temp);
                 }
                 //increase counter
@@ -137,6 +139,9 @@ public class CountryAnalysis
     /**
      * Finds the most similar pair of countries in a given list 
      * based on one or more specified criteria.
+     * This implementation only caters for the following cases:
+     * ->One criteria: population
+     * ->Two criteria: literacy & internet usage
      * @param countries A list of countries
      * @param ...criteria A variable length parameter for the criteria to compare countries.
      * @return An array of the most similar pair of countries.
@@ -146,7 +151,6 @@ public class CountryAnalysis
         Country[] mostSimilarPair = new Country[2];
         // intialize least difference to infinty
         int difference = INFINITY;
-        
         for(int i = 0; i < countries.size() - 1; i++){
             for(int j = i+1; j < countries.size(); j++){
                 // initialise variable for temporary difference
@@ -181,7 +185,7 @@ public class CountryAnalysis
                             }
                             break;
                     }
-                    // Two criteria
+                // Two criteria
                 }else if(criteria.length == 2){
                     // criteria = literacy(2) & number of internet users(3)
                     if((criteria[0] == 2 && criteria[1] == 3) || 
@@ -204,8 +208,8 @@ public class CountryAnalysis
                             mostSimilarPair[0] = countries.get(i);
                             mostSimilarPair[1] = countries.get(j);
                         }
-                    }
-                }
+                    }// end of criteria check
+                }// end of number of criteria check
             }
         }
         // return most similar pair of countries.

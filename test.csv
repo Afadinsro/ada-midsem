@@ -1,10 +1,10 @@
-Country,population,literacy,internet,
-Ghana,10,34,23,57
-Nigeria,23,45,56,101
-Algeria,14,34,12,46
-Zimbabwe,30,23,38,61
-Zambia,12,56,19,75
-Togo,9,23,27,50
-Burkina Faso,12,10,24,34
-South Africa,38,13,39,52
-Morocco,46,45,40,85
+Country,population,literacy,internet
+Ghana,10,34,23
+Nigeria,23,45,56
+Algeria,14,34,12
+Zimbabwe,30,23,38
+Zambia,12,56,19
+Togo,9,23,27
+Burkina Faso,12,10,24
+South Africa,38,13,39
+Morocco,46,45,40

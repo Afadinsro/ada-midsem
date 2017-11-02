@@ -1,13 +1,8 @@
-// import packages
-import org.junit.runner.JUnitCore;
-import org.junit.runner.Result;
-import org.junit.runner.notification.Failure;
-
 /**
- * Write a description of class CountryTestRunner here.
+ * Test class for Country class.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Joseph Mills
+ * @version 2nd November 2017
  */
 public class CountryTest
 {
@@ -19,6 +14,8 @@ public class CountryTest
         System.out.println("Testing getter methods...");
         System.out.println("Ghana name: " + ghana.name());
         System.out.println("Ghana population: " + ghana.population());
+        System.out.println("Ghana literacy rate: " + ghana.literacy());
+        System.out.println("Ghana internet users: " + ghana.internet());
         
         System.out.println("Testing equals()...");
         System.out.println("ghana=nigeria: " + ghana.equals(nigeria));

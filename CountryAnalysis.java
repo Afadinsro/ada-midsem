@@ -17,7 +17,7 @@ import java.io.IOException;
  * ->Country[] mostSimilarPair(ArrayList<Country> countries, int ...criteria)
  *
  * @author Joseph Mills
- * @version October 2017
+ * @version 2nd November 2017
  */
 public class CountryAnalysis
 {

@@ -1,19 +1,28 @@
 // Import statements
 import java.lang.NullPointerException;
 
-
 /**
  * This class models a real-world Country
- * Every Country object has a name and a population
+ * Every Country object has a name, population, literacy rate and number of internet subscribers
  * The name of every Country object should be unique.
+ * This class implements the Comparable interface on the population
+ * Methods:
+ * ->int population()
+ * ->int name()
+ * ->int literacy()
+ * ->int internet()
+ * ->boolean equals(Country other)
+ * ->int compareTo(Country other)
+ * ->String toString()
+ * 
  * @author Joseph Mills
- * @version October 2017
+ * @version 2nd November 2017
  */
 public class Country implements Comparable<Country> 
 {
     // instance variables
     private String name;
-    private Integer population;
+    private int population;
     private int literacy;
     private int internet;
     
@@ -21,8 +30,9 @@ public class Country implements Comparable<Country>
     /**
      * Constructor for objects of class Country
      * A Country's name cannot be NULL
+     * @throws NullPointerException
      */
-    public Country(String name, Integer population, int literacy, int internet) throws NullPointerException
+    public Country(String name, int population, int literacy, int internet) throws NullPointerException
     {
         // Throw exception when name is null
         if(name == null){
@@ -37,17 +47,15 @@ public class Country implements Comparable<Country>
 
     /**
      * Returns the population of the Country
-     *
      * @return    the population of this Country object
      */
-    public Integer population()
+    public int population()
     {
         return this.population;
     }
     
     /**
      * Returns the name of the Country
-     *
      * @return    the name of this Country object
      */
     public String name()
@@ -57,7 +65,6 @@ public class Country implements Comparable<Country>
     
     /**
      * Returns the literacy of the Country
-     *
      * @return    the literacy rate of this Country object
      */
     public int literacy()
@@ -67,7 +74,6 @@ public class Country implements Comparable<Country>
     
     /**
      * Returns the number of internet users in the Country
-     *
      * @return    number of internet users in this Country object
      */
     public int internet()
@@ -106,7 +112,12 @@ public class Country implements Comparable<Country>
     public int compareTo(Country other)
     {
         int val = 0;
-        return this.population().compareTo(other.population());
+        if(this.population() < other.population()){
+            val = -1;
+        }else if(this.population() > other.population()){
+            val = 1;
+        }
+        return val;
     }
     
     /**

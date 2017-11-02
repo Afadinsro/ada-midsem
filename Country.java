@@ -22,7 +22,7 @@ public class Country implements Comparable<Country>
      * Constructor for objects of class Country
      * A Country's name cannot be NULL
      */
-    public Country(String name, Integer population) throws NullPointerException
+    public Country(String name, Integer population, int literacy, int internet) throws NullPointerException
     {
         // Throw exception when name is null
         if(name == null){
@@ -31,6 +31,8 @@ public class Country implements Comparable<Country>
         // initialise instance variables
         this.name = name;
         this.population = population;
+        this.literacy = literacy;
+        this.internet = internet;
     }
 
     /**
@@ -103,15 +105,16 @@ public class Country implements Comparable<Country>
     @Override
     public int compareTo(Country other)
     {
+        int val = 0;
         return this.population().compareTo(other.population());
     }
     
     /**
-     * 
-     * @return 
+     * Represents a Country object in a formatted text
+     * @return  A formatted String representation of a Country object.
      */
     public String toString()
     {
-        return name() + ": " + population();
+        return name() + ": Pop.:" + population() + ", Lit.:" + literacy() + ", Int.:" + internet();
     }
 }

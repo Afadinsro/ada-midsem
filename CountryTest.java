@@ -12,9 +12,9 @@ import org.junit.runner.notification.Failure;
 public class CountryTest
 {
     public static void main(String[] args){
-        Country ghana = new Country("Ghana", 20000000);
-        Country nigeria = new Country("Nigeria", 100000000);
-        Country congo = new Country("Congo", 20000000);
+        Country ghana = new Country("Ghana", 20000000, 111, 222);
+        Country nigeria = new Country("Nigeria", 100000000, 333, 444);
+        Country congo = new Country("Congo", 20000000, 555, 666);
         
         System.out.println("Testing getter methods...");
         System.out.println("Ghana name: " + ghana.name());

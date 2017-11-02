@@ -15,6 +15,8 @@ import java.io.IOException;
  */
 public class CountryAnalysis
 {
+    public static final int INFINITY = 1000000000;
+    
     /**
      * 
      */
@@ -117,8 +119,21 @@ public class CountryAnalysis
     /**
      * 
      */
-    public static Country[] mostSimilarPair(){
+    public static Country[] mostSimilarPair(ArrayList<Country> countries, int ...criteria){
         Country[] mostSimilarPair = new Country[2];
+        int difference = INFINITY;
+        
+        for(int i = 0; i < countries.size() - 1; i++){
+            for(int j = i+1; j < countries.size(); j++){
+                int temp = 0;
+                if(criteria.length == 1){
+                    switch(criteria[0]){
+                        case 1:
+                            
+                    }
+                }
+            }
+        }
         
         return mostSimilarPair;
     }

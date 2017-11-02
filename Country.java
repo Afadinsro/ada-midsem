@@ -14,11 +14,8 @@ public class Country implements Comparable<Country>
     // instance variables
     private String name;
     private Integer population;
-    /*private int literacy;
+    private int literacy;
     private int internet;
-    private int mobile;
-    private int electProd;
-    private int electCons;*/
     
 
     /**
@@ -37,7 +34,7 @@ public class Country implements Comparable<Country>
     }
 
     /**
-     * Returns the name of the Country
+     * Returns the population of the Country
      *
      * @return    the population of this Country object
      */
@@ -54,6 +51,26 @@ public class Country implements Comparable<Country>
     public String name()
     {
         return this.name;
+    }
+    
+    /**
+     * Returns the literacy of the Country
+     *
+     * @return    the literacy rate of this Country object
+     */
+    public int literacy()
+    {
+        return this.literacy;
+    }
+    
+    /**
+     * Returns the number of internet users in the Country
+     *
+     * @return    number of internet users in this Country object
+     */
+    public int internet()
+    {
+        return this.internet;
     }
     
     /**

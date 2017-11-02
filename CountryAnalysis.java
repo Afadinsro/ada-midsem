@@ -215,4 +215,19 @@ public class CountryAnalysis
         // return most similar pair of countries.
         return mostSimilarPair;
     }
+    
+    /**
+     * Compustes the average population of the given list of countries
+     * @param countries The list of countries
+     * @return the average population.
+     */
+    public static int mean(ArrayList<Country> countries){
+        int sum = 0;
+        // compute sum of populations
+        for(Country c: countries){
+            sum += c.population();
+        }
+        // return average
+        return sum / countries.size();
+    }
 }

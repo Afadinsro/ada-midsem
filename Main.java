@@ -20,7 +20,7 @@ public class Main
         int medianIndex = 0;
         medianIndex = (size / 2) + 1;
         // get median country
-        Country medCountry = CountryAnalysis.median(countries).get(0);
+        Country medCountry = CountryAnalysis.median(countries)[0];
         //display result
         System.out.println("Country with median population is " + medCountry.name() + ".");
         System.out.println(medCountry.name() + " has a population of " + medCountry.population() + ".");

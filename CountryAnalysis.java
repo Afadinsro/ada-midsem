@@ -8,7 +8,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * Write a description of class CountryAnalysis here.
+ * This class contains static methods to analyse data about countries.
+ * Methods:
+ * ->ArrayList<Country> read(String filename)
+ * ->boolean isInt(String text)
+ * ->ArrayList<Country> sort(ArrayList<Country> countries)
+ * ->Country[] median(ArrayList<Country> countries)
+ * ->Country[] mostSimilarPair(ArrayList<Country> countries, int ...criteria)
  *
  * @author Joseph Mills
  * @version October 2017
@@ -85,51 +91,119 @@ public class CountryAnalysis
     }
     
     /**
-     * 
+     * Sorts the countries in ascending order of the country's population.
      * Collections.sort() uses merge sort which has a runtime of nlog(n)
      * Runtime: nlog(n)
+     * @param   countries   An ArrayList of unsorted countries
+     * @return  A sorted ArrayList of countries.
      */
-    public static ArrayList<Country> sort(ArrayList<Country> countries){
+    public static ArrayList<Country> sort(ArrayList<Country> countries)
+    {
         // sort list using Collections package
         Collections.sort(countries);
         return countries;
     }
     
     /**
-     * 
+     * Returns the 
      */
-    public static Country[] median(ArrayList<Country> countries){
+    public static Country median(ArrayList<Country> countries)
+    {
         int size = countries.size();
         int medianIndex = 0;
-        Country[] medianCountries = new Country[2];
+        Country median = null;
         // Odd size
         if(size % 2 == 1){
             medianIndex = (size / 2) + 1;
-            medianCountries[0] = countries.get(medianIndex);
+            median = countries.get(medianIndex);
         }else{
             //Even size
             medianIndex = (size / 2);
-            // Add countries add indices size/2 & size/2 + 1
-            medianCountries[0] = countries.get(medianIndex);
-            medianCountries[1] = countries.get(++medianIndex);
+            median = countries.get(medianIndex);
         }
-        return medianCountries;
+        return median;
     }
     
     /**
      * 
      */
-    public static Country[] mostSimilarPair(ArrayList<Country> countries, int ...criteria){
+    public static Country[] mostSimilarPair(ArrayList<Country> countries, int ...criteria)
+    {
         Country[] mostSimilarPair = new Country[2];
         int difference = INFINITY;
         
         for(int i = 0; i < countries.size() - 1; i++){
             for(int j = i+1; j < countries.size(); j++){
                 int temp = 0;
+                // One Criteria
                 if(criteria.length == 1){
                     switch(criteria[0]){
+                        /*
+                         * Criteria
+                         * 1 - Population
+                         * 2 - Literacy rate
+                         * 3 - Number of internet users
+                         * 4 - Number of mobile subscriptions
+                         */
+                        
+                        //criteria = literacy rate
                         case 1:
-                            
+                            // compute difference in criteria for the pair of countries
+                            temp = countries.get(i).population() - countries.get(j).population();
+                            // Difference is less than the least distance so far
+                            if(temp < difference){
+                                // update least distance
+                                difference = temp;
+                                // get most similar pair
+                                mostSimilarPair[0] = countries.get(i);
+                                mostSimilarPair[1] = countries.get(j);
+                            }
+                            break;
+                        //criteria = literacy rate
+                        case 2:
+                            // compute difference in criteria for the pair of countries    
+                            temp = countries.get(i).literacy() - countries.get(j).literacy();
+                            // Difference is less than the least distance so far
+                            if(temp < difference){
+                                // update least distance
+                                difference = temp;
+                                // get most similar pair
+                                mostSimilarPair[0] = countries.get(i);
+                                mostSimilarPair[1] = countries.get(j);
+                            }
+                            break;
+                        //criteria = number of internet users
+                        case 3:
+                            // compute difference in criteria for the pair of countries
+                            temp = countries.get(i).internet() - countries.get(j).internet();
+                            // Difference is less than the least distance so far
+                            if(temp < difference){
+                                // update least distance
+                                difference = temp;
+                                // get most similar pair
+                                mostSimilarPair[0] = countries.get(i);
+                                mostSimilarPair[1] = countries.get(j);
+                            }
+                            break;
+                    }
+                    // Two criteria
+                }else if(criteria.length == 2){
+                    // criteria = literacy(2) & number of internet users(3)
+                    if((criteria[0] == 2 && criteria[1] == 3) || 
+                        (criteria[0] == 3 && criteria[1] == 2)){
+                        // compute sum of criteria values for each country
+                        int iSum = countries.get(i).literacy() + countries.get(i).internet();
+                        int jSum = countries.get(j).literacy() + countries.get(j).internet();
+                        // compute difference in criteria for the pair of countries
+                        temp = iSum - jSum;
+                        // Difference is less than the least distance so far
+                        if(temp < difference){
+                            // update least distance
+                            difference = temp;
+                            // get most similar pair
+                            mostSimilarPair[0] = countries.get(i);
+                            mostSimilarPair[1] = countries.get(j);
+                        }
                     }
                 }
             }
